@@ -16,6 +16,7 @@ def main():
     parser.add_argument("-u", "--url", help="playlist video url", type=str) #, nargs='+'
     parser.add_argument("--id", help="playlist video id", type=str) #, nargs='+'
     parser.add_argument("--video", help="download full mp4 videos instead of converting to mp3", action="store_true")
+    parser.add_argument("-o", "--operation", help="merge operation to use if dir isn't empty; r to merge by renaming, d to merge by deleting", type=str)
     args = parser.parse_args()
     parser.parse_args()
 
@@ -58,6 +59,10 @@ def main():
     
     if download.stderr:
         print(f"{download.returncode} - {download.stderr}")
+        return
+    
+    #If no merge operation specified, just quit
+    if not args.operation:
         return
     
     mp3s = [f for f in os.listdir(dir) if os.path.isfile(os.path.join(dir, f)) and f.endswith(".mp3")]
