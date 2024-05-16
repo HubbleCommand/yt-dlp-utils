@@ -15,6 +15,7 @@ def main():
     parser.add_argument("-d", "--directory", help="output directory, MUST be a full path, files will be dumped here, this script handles merging", type=str)
     parser.add_argument("-u", "--url", help="playlist video url", type=str) #, nargs='+'
     parser.add_argument("--id", help="playlist video id", type=str) #, nargs='+'
+    parser.add_argument("--start", help="index to start at", type=int)
     parser.add_argument("--video", help="download full mp4 videos instead of converting to mp3", action="store_true")
     parser.add_argument("-o", "--operation", help="merge operation to use if dir isn't empty; r to merge by renaming, d to merge by deleting", type=str)
     args = parser.parse_args()
@@ -39,6 +40,8 @@ def main():
     #This may take an exceeding amount of time, depending on the length of the playlist...
     #command = f'yt-dlp.exe --rm-cache-dir -ciw --embed-thumbnail --embed-metadata --extract-audio --audio-format mp3 -o "{dir}/%(playlist_index)s - %(title)s.%(ext)s" {url}'
     command = 'yt-dlp.exe --rm-cache-dir -ciw --embed-thumbnail --embed-metadata '
+    if args.start:
+        command += f' --playlist-start {args.start} '
     if not args.video:
         command += '--extract-audio --audio-format mp3 '
     command += f'-o "{dir}/%(playlist_index)s - %(title)s.%(ext)s" {url}'
