@@ -17,7 +17,7 @@ def main():
     if args.directory:
         dir = args.directory #os.path.abspath(args.directory)
 
-    download = subprocess.Popen(f'yt-dlp --rm-cache-dir --extract-audio --audio-format mp3 --embed-thumbnail --embed-metadata -o "/{dir}/%(title)s.%(ext)s" {url}', stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    download = subprocess.Popen(f'yt-dlp --rm-cache-dir --extract-audio --audio-format mp3 --embed-thumbnail --embed-metadata -o "{dir}/%(title)s.%(ext)s" {url}', stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
   
     #For logging yt-dlp progress, pipe the output here
     while download.stdout.readable():
