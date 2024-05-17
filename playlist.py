@@ -2,6 +2,7 @@ from mutagen.easyid3 import EasyID3 #I don't think this will be needed for playl
 import argparse
 import os
 import subprocess
+import datetime
 
 """
 Python utility script to download a YT playlist and diff from an already downloaded version of it
@@ -10,6 +11,7 @@ https://gist.github.com/HubbleCommand/fa607cb86b023b08e04164ee650407fb
 """
 
 def main():
+    stamp_start = datetime.datetime.now().timestamp()
     #https://docs.python.org/3/howto/argparse.html
     parser = argparse.ArgumentParser()
     parser.add_argument("-d", "--directory", help="output directory, MUST be a full path, files will be dumped here, this script handles merging", type=str)
@@ -64,6 +66,8 @@ def main():
         print(f"{download.returncode} - {download.stderr}")
         return
     
+    stamp_dl_end = datetime.datetime.now().timestamp()
+    print(f"elapsed time downloading: {stamp_dl_end - stamp_start}")
     #If no merge operation specified, just quit
     if not args.operation:
         return
