@@ -4,8 +4,8 @@ import subprocess
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-d", "--directory", help="output directory, MUST be a full path, files will be dumped here, this script handles merging", type=str)
-    parser.add_argument("-u", "--url", help="playlist video url", type=str) #, nargs='+'
+    parser.add_argument("-d", "--directory", help="output directory, MUST be a full path, files will be dumped here", type=str)
+    parser.add_argument("-u", "--url", help="video url", type=str) #, nargs='+'
     args = parser.parse_args()
     parser.parse_args()
 

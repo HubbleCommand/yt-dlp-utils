@@ -15,7 +15,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-d", "--directory", help="output directory", type=str)
     parser.add_argument("-u", "--url", help="video url", type=str) #, nargs='+'
-    parser.add_argument("--id", help="playlist video id", type=str) #, nargs='+'
+    parser.add_argument("--id", help="video id", type=str) #, nargs='+'
     parser.add_argument("-o", "--override-name", help="override the target folder name", type=str)
     args = parser.parse_args()
     parser.parse_args()
