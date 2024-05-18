@@ -6,6 +6,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-d", "--directory", help="output directory, MUST be a full path, files will be dumped here", type=str)
     parser.add_argument("-u", "--url", help="video url", type=str) #, nargs='+'
+    parser.add_argument("-v", "--video", help="download as video instead of converting to mp3", action="store_true")
     args = parser.parse_args()
     parser.parse_args()
 
@@ -17,7 +18,11 @@ def main():
     if args.directory:
         dir = args.directory #os.path.abspath(args.directory)
 
-    download = subprocess.Popen(f'yt-dlp --rm-cache-dir --extract-audio --audio-format mp3 --embed-thumbnail --embed-metadata -o "{dir}/%(title)s.%(ext)s" {url}', stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    command = 'yt-dlp.exe --rm-cache-dir -ciw --embed-thumbnail --embed-metadata '
+    if not args.video:
+        command += '--extract-audio --audio-format mp3 '
+    command += f'-o "{dir}/%(title)s.%(ext)s" {url}'
+    download = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
   
     #For logging yt-dlp progress, pipe the output here
     while download.stdout.readable():

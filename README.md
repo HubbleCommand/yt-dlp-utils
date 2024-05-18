@@ -8,6 +8,7 @@ Downloads a single video as a `.mp3` file.
 python chapters.py
     --dir       str: 'absolute path to write results to'
     --url       str: 'video url'
+    --video     flag: 'download full videos instead of converting to mp3s'
 ```
 
 ## Chapters
