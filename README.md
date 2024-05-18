@@ -19,8 +19,6 @@ python chapters.py
     --dir       str: 'absolute path to write results to'
     --id        str: 'video id (youtube only)'
     --url       str: 'video url'
-    --video     flag: 'download full videos instead of converting to mp3s'
-    --start     int: 'start download from playlist index'
 ```
 
 ## Playlist
