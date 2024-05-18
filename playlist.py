@@ -18,7 +18,7 @@ def main():
     parser.add_argument("-u", "--url", help="playlist url", type=str) #, nargs='+'
     parser.add_argument("--id", help="playlist id", type=str) #, nargs='+'
     parser.add_argument("--start", help="index to start at", type=int)
-    parser.add_argument("--video", help="download full mp4 videos instead of converting to mp3", action="store_true")
+    parser.add_argument("--video", help="download as video instead of converting to mp3", action="store_true")
     parser.add_argument("-o", "--operation", help="merge operation to use if dir isn't empty; r to merge by renaming, d to merge by deleting", type=str)
     args = parser.parse_args()
     parser.parse_args()
