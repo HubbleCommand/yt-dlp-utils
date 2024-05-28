@@ -1,6 +1,8 @@
 # YT-DLP Utils
 Wrapper commands around common [YT-DLP](https://github.com/yt-dlp/yt-dlp) commands that I use
 
+> YT-DLP can be used to download videos from a much wider source than I imagined, including LinkedIn!
+
 ## Single
 Downloads a single video as a `.mp3` file.
 
