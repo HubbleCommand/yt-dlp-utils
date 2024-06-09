@@ -3,6 +3,12 @@ Wrapper commands around common [YT-DLP](https://github.com/yt-dlp/yt-dlp) comman
 
 > YT-DLP can be used to download videos from a much wider source than I imagined, including LinkedIn! See [this page](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md) for the full list.
 
+## Leftover commands
+These are some commands that are too short to write a complete script for
+
+- Download only video thumbnail : `yt-dlp --write-thumbnail --skip-download <URL>`
+
+
 ## Single
 Downloads a single video as a `.mp3` file.
 
