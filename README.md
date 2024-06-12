@@ -42,3 +42,12 @@ python playlist.py
     --operation str: 'merge operation used if dir isn't empty; r to merge by 
                         renaming, d to merge by deleting'
 ```
+
+## Merge
+Merges downloaded playlists directories, specifically to merge back deleted videos. Does so by copying all unique files in supplied folders to the output directory (ignoring index & file type).
+
+```
+python merge.py
+    --playlists  str+: 'paths to the playlist directories'
+    --out         str: 'where to copy files to'
+```
