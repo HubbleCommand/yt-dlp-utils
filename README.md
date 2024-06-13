@@ -3,6 +3,13 @@ Wrapper commands around common [YT-DLP](https://github.com/yt-dlp/yt-dlp) comman
 
 > YT-DLP can be used to download videos from a much wider source than I imagined, including LinkedIn! See [this page](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md) for the full list.
 
+## Setup
+Download the yt-dlp executable from the [yt-dlp repo](https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#installation).
+
+You will need ffmpeg for the metadata and file splitting features. yt-dlp provides custom builds of this critical dependency [here](https://github.com/yt-dlp/FFmpeg-Builds?tab=readme-ov-file).
+
+You can either use these scripts within the same directory as the installed requirements, or add `yt-dlp.exe`, `ffmpeg`, `ffplay`, and `ffprobe` to your system's `PATH` variables.
+
 ## Leftover commands
 These are some commands that are too short to write a complete script for
 
