@@ -2,7 +2,6 @@ from mutagen.easyid3 import EasyID3
 import argparse
 import os
 import subprocess
-import json
 from glob import glob
 
 """
