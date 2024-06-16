@@ -10,6 +10,8 @@ You will need ffmpeg for the metadata and file splitting features. yt-dlp provid
 
 You can either use these scripts within the same directory as the installed requirements, or add `yt-dlp.exe`, `ffmpeg`, `ffplay`, and `ffprobe` to your system's `PATH` variables.
 
+Install the python dependencies with `pip install -r requirements.txt`
+
 ## Leftover commands
 These are some commands that are too short to write a complete script for
 
