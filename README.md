@@ -31,6 +31,8 @@ python chapters.py
 ## Chapters
 Downloads a single video, seperating it into separate files by chapter.
 
+** WARNING ** thumbnail might not be embedded, see [this issue](https://github.com/yt-dlp/yt-dlp/issues/6225) for details
+
 ```
 python chapters.py
     --dir       str: 'absolute path to write results to'
