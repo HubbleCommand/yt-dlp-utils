@@ -22,7 +22,7 @@ These are some commands that are too short to write a complete script for
 Downloads a single video as a `.mp3` file.
 
 ```
-python chapters.py
+python single.py
     --dir       str: 'absolute path to write results to'
     --url       str: 'video url'
     --video     flag: 'download full videos instead of converting to mp3s'
