@@ -50,7 +50,7 @@ def main():
     else:
         url = args.url
         split = url.rsplit("=", 1)
-        if len(split) > 2:
+        if len(split) >= 2:
             id = split[1]
         else:
             id = ""
