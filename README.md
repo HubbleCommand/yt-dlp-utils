@@ -40,7 +40,8 @@ Downloads a single video as a `.mp3` file.
 ```
 python single.py
     --dir       str: 'absolute path to write results to'
-    --url       str: 'video url'
+    --id        str: 'playlist id (youtube only)'
+    --url       str: 'playlist url'
     --video     flag: 'download full videos instead of converting to mp3s'
 ```
 

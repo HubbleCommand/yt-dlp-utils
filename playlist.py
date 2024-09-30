@@ -3,6 +3,7 @@ import argparse
 import os
 import subprocess
 import datetime
+from common_argparse import make_common_argparse, parse_common_args_url
 
 """
 Python utility script to download a YT playlist and diff from an already downloaded version of it
@@ -13,32 +14,18 @@ https://gist.github.com/HubbleCommand/fa607cb86b023b08e04164ee650407fb
 def main():
     stamp_start = datetime.datetime.now().timestamp()
     #https://docs.python.org/3/howto/argparse.html
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-d", "--directory", help="output directory, MUST be a full path, files will be dumped here, this script handles merging", type=str)
-    parser.add_argument("-u", "--url", help="playlist url", type=str) #, nargs='+'
-    parser.add_argument("--id", help="playlist id", type=str) #, nargs='+'
+    parser = make_common_argparse()
     parser.add_argument("--start", help="index to start at", type=int)
     parser.add_argument("--video", help="download as video instead of converting to mp3", action="store_true")
     parser.add_argument("-o", "--operation", help="merge operation to use if dir isn't empty; r to merge by renaming, d to merge by deleting", type=str)
     args = parser.parse_args()
     parser.parse_args()
 
-    url = None
-    id = None
-    if not args.url :
-        if not args.id:
-            print("URL or video ID required")
-            return
-        url = f"https://www.youtube.com/playlist?list={args.id}"
-        id = args.id
-    else:
-        url = args.url
-        id = url.rsplit("=", 1)[1]
+    url, id, dir, err = parse_common_args_url(args = args, url_start="https://www.youtube.com/playlist?list")
 
-    dir = os.getcwd()
-    if args.directory:
-        dir = args.directory #os.path.abspath(args.directory)
-    
+    if err:
+        return
+
     #This may take an exceeding amount of time, depending on the length of the playlist...
     #command = f'yt-dlp.exe --rm-cache-dir -ciw --embed-thumbnail --embed-metadata --extract-audio --audio-format mp3 -o "{dir}/%(playlist_index)s - %(title)s.%(ext)s" {url}'
     command = 'yt-dlp.exe --rm-cache-dir -ciw --embed-thumbnail --embed-metadata '

@@ -1,27 +1,23 @@
 import argparse
 import os
 import subprocess
+from common_argparse import make_common_argparse, parse_common_args_url
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-d", "--directory", help="output directory, MUST be a full path, files will be dumped here", type=str)
-    parser.add_argument("-u", "--url", help="video url", type=str) #, nargs='+'
+    parser = make_common_argparse()
     parser.add_argument("-v", "--video", help="download as video instead of converting to mp3", action="store_true")
     args = parser.parse_args()
     parser.parse_args()
 
-    if not args.url:
-        print("URL required")
+    url, id, dir, err = parse_common_args_url(args = args, url_start="https://www.youtube.com/watch?v")
+
+    if err:
         return
-    url = args.url
-    dir = os.getcwd()
-    if args.directory:
-        dir = args.directory #os.path.abspath(args.directory)
 
     command = 'yt-dlp.exe --rm-cache-dir -ciw --embed-thumbnail --embed-metadata '
     if not args.video:
         command += '--extract-audio --audio-format mp3 '
-    command += f'-o "{dir}/%(title)s.%(ext)s" {url}'
+    command += f'-o "{dir}/%(title)s - {id}.%(ext)s" {url}'
     download = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
   
     #For logging yt-dlp progress, pipe the output here

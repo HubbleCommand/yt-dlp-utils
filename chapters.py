@@ -3,6 +3,7 @@ import argparse
 import os
 import subprocess
 from glob import glob
+from common_argparse import make_common_argparse, parse_common_args_url
 
 """
 Python utility script that wraps yt-dlp to download a single video and split it into chapters, while correctly setting the metadata of each file (which yt-dlp currently cannot do)
@@ -11,43 +12,18 @@ Example call: python chapters.py -u https://www.youtube.com/watch?v=FeaZxmtDNWk
 """
 def main():
     #https://docs.python.org/3/howto/argparse.html
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-d", "--directory", help="output directory", type=str)
-    parser.add_argument("-u", "--url", help="video url", type=str) #, nargs='+'
-    parser.add_argument("--id", help="video id", type=str) #, nargs='+'
+    parser = make_common_argparse()
     parser.add_argument("-o", "--override-name", help="override the target folder name", type=str)
     args = parser.parse_args()
     parser.parse_args()
 
+    url, id, dir, err = parse_common_args_url(args = args, url_start="https://www.youtube.com/watch?v")
 
-    """
-    if not args.url:
-        print("URL required")
+    if err:
         return
-    url = args.url
-    id = url.rsplit("=", 2)[1]
-    """
-    url = None
-    id = None
-    if not args.url:
-        if not args.id:
-            print("URL or video ID required")
-            return
-        url = f"https://www.youtube.com/watch?v={args.id}"
-        id = args.id
-    else:
-        url = args.url
-        split = url.rsplit("=", 1)
-        if len(split) >= 2:
-            id = split[1]
-        else:
-            id = ""
 
     print(f"Video ID: {id}")
-
-    dir = os.getcwd()
-    if args.directory:
-        dir = args.directory #os.path.abspath(args.directory)
+    
 
     download = subprocess.Popen(f'yt-dlp --rm-cache-dir --extract-audio --audio-format mp3 --embed-thumbnail --embed-metadata --split-chapters -o "chapter:{dir}/%(title)s - {id}/%(section_number)s - %(section_title)s.%(ext)s" {url}', stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 
