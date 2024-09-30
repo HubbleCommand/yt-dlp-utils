@@ -12,6 +12,22 @@ You can either use these scripts within the same directory as the installed requ
 
 Install the python dependencies with `pip install -r requirements.txt`
 
+Note that there are possible limitations with metadata tags.
+[Mutagen EasyID3](https://mutagen.readthedocs.io/en/latest/api/id3.html#module-mutagen.easyid3) is used, which has the following available tags:
+
+```
+print(EasyID3.valid_keys.keys())
+dict_keys([
+    'album', 'bpm', 'compilation', 'composer', 'copyright', 'encodedby', 'lyricist', 'length', 'media', 'mood', 'grouping', 'title',
+    'version', 'artist', 'albumartist', 'conductor', 'arranger', 'discnumber', 'organization', 'tracknumber', 'author',
+    'albumartistsort', 'albumsort', 'composersort', 'artistsort', 'titlesort', 'isrc', 'discsubtitle', 'language',
+    'genre', 'date', 'originaldate', 'performer:*', 'musicbrainz_trackid', 'website', 'replaygain_*_gain', 'replaygain_*_peak',
+    'musicbrainz_artistid', 'musicbrainz_albumid', 'musicbrainz_albumartistid', 'musicbrainz_trmid', 'musicip_puid', 'musicip_fingerprint',
+    'musicbrainz_albumstatus', 'musicbrainz_albumtype', 'releasecountry', 'musicbrainz_discid', 'asin', 'performer', 'barcode', 'catalognumber',
+    'musicbrainz_releasetrackid', 'musicbrainz_releasegroupid', 'musicbrainz_workid', 'acoustid_fingerprint', 'acoustid_id'
+])
+```
+
 ## Leftover commands
 These are some commands that are too short to write a complete script for
 
