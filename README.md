@@ -28,6 +28,8 @@ dict_keys([
 ])
 ```
 
+** WARNING ** thumbnail might not be embedded, see [this issue](https://github.com/yt-dlp/yt-dlp/issues/6225) for details
+
 ## Leftover commands
 These are some commands that are too short to write a complete script for
 
@@ -47,8 +49,6 @@ python single.py
 
 ## Chapters
 Downloads a single video, seperating it into separate files by chapter.
-
-** WARNING ** thumbnail might not be embedded, see [this issue](https://github.com/yt-dlp/yt-dlp/issues/6225) for details
 
 ```
 python chapters.py
