@@ -19,7 +19,10 @@ def parse_common_args_url(args, url_start):
 		id = args.id
 	else:
 		url = args.url
-		id = url.rsplit("=", 1)[1]
+		try:
+			id = url.rsplit("=", 1)[1]
+		except:
+			id = None
 
 	dir = os.getcwd()
 	if args.directory:
