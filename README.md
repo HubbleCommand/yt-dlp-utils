@@ -3,6 +3,9 @@ Wrapper commands around common [YT-DLP](https://github.com/yt-dlp/yt-dlp) comman
 
 > YT-DLP can be used to download videos from a much wider source than I imagined, including LinkedIn! See [this page](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md) for the full list.
 
+> Currently ongoing issues with yt-dlp due to yt changes [*](https://github.com/yt-dlp/yt-dlp/issues/11868)
+    A good working alternative can be found [here](https://cnvmp3.com/v4)
+
 ## Setup
 Download the yt-dlp executable from the [yt-dlp repo](https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#installation).
 
@@ -60,6 +63,9 @@ python chapters.py
 
 ## Playlist
 Downloads a playlist, can handle merging with previous downloads if set.
+
+> I just found that [yt-dlp already supports diffing](https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-download-only-new-videos-from-a-playlist)
+> However, dunno if it works with the renaming I do...
 
 ```
 python playlist.py
