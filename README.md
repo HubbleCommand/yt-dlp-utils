@@ -3,9 +3,8 @@ Wrapper commands around common [YT-DLP](https://github.com/yt-dlp/yt-dlp) comman
 
 > YT-DLP can be used to download videos from a much wider source than I imagined, including LinkedIn! See [this page](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md) for the full list.
 
-> Currently ongoing issues with yt-dlp due to yt changes [*](https://github.com/yt-dlp/yt-dlp/issues/11868)
-    ~~A good working alternative can be found [here](https://cnvmp3.com/v4)~~
-   cnvmp3 has also recently broken...
+> ~~ Currently ongoing issues with yt-dlp due to yt changes [*](https://github.com/yt-dlp/yt-dlp/issues/11868) ~~
+    simply update yt-dlp and ffmpeg dependencies, see setup below
 
 ## Setup
 Download the yt-dlp executable from the [yt-dlp repo](https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#installation).
