@@ -49,7 +49,11 @@ python single.py
     --id        str: 'playlist id (youtube only)'
     --url       str: 'playlist url'
     --video     flag: 'download full videos instead of converting to mp3s'
+    -- trim     str: 'trim "*from-to" ie "*25-32", all in seconds'
 ```
+
+For determining the trimming timestamps, you can use [this](https://www.omnicalculator.com/conversion/minutes-to-seconds-converter)
+tool to easily convert mm:ss to sss.
 
 ## Chapters
 Downloads a single video, seperating it into separate files by chapter.

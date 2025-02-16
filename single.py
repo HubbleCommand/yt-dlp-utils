@@ -6,6 +6,7 @@ from common_argparse import make_common_argparse, parse_common_args_url
 def main():
     parser = make_common_argparse()
     parser.add_argument("-v", "--video", help="download as video instead of converting to mp3", action="store_true")
+    parser.add_argument("-t", "--trim", help='trim "*from-to" ie "*25-32", all in seconds')
     args = parser.parse_args()
     parser.parse_args()
 
@@ -17,6 +18,9 @@ def main():
     command = 'yt-dlp.exe --rm-cache-dir -ciw --embed-thumbnail --embed-metadata '
     if not args.video:
         command += '--extract-audio --audio-format mp3 '
+    if args.trim:
+        command += f" --download-sections {args.trim} "
+    
     command += f'-o "{dir}/%(title)s - {id}.%(ext)s" {url}'
     download = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
   
