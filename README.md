@@ -6,6 +6,12 @@ Wrapper commands around common [YT-DLP](https://github.com/yt-dlp/yt-dlp) comman
 > ~~ Currently ongoing issues with yt-dlp due to yt changes [*](https://github.com/yt-dlp/yt-dlp/issues/11868) ~~
     simply update yt-dlp and ffmpeg dependencies, see setup below
 
+## Cookies
+
+Some videos are age restricted, namely VICE documentaries.
+While yt-dlp does have support for cookies, I've never gotten it to work...
+A good alternative is [cnvmp3](https://cnvmp3.com/v23).
+
 ## Setup
 Download the yt-dlp executable from the [yt-dlp repo](https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#installation).
 
