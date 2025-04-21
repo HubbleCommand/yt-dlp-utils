@@ -16,12 +16,11 @@ def main():
     #https://docs.python.org/3/howto/argparse.html
     parser = make_common_argparse()
     parser.add_argument("--start", help="index to start at", type=int)
-    parser.add_argument("--video", help="download as video instead of converting to mp3", action="store_true")
     parser.add_argument("-o", "--operation", help="merge operation to use if dir isn't empty; r to merge by renaming, d to merge by deleting", type=str)
     args = parser.parse_args()
     parser.parse_args()
 
-    url, id, dir, err = parse_common_args_url(args = args, url_start="https://www.youtube.com/playlist?list")
+    url, id, dir, video, err = parse_common_args_url(args = args, url_start="https://www.youtube.com/playlist?list")
 
     if err:
         return
@@ -31,7 +30,7 @@ def main():
     command = 'yt-dlp.exe --rm-cache-dir -ciw --embed-thumbnail --embed-metadata '
     if args.start:
         command += f' --playlist-start {args.start} '
-    if not args.video:
+    if not video:
         command += '--extract-audio --audio-format mp3 '
     command += f'-o "{dir}/%(playlist_index)s - %(title)s.%(ext)s" {url}'
     download = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT) #run(..., capture_output=True, text=True)
