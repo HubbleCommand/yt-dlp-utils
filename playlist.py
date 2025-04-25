@@ -20,7 +20,7 @@ def main():
     args = parser.parse_args()
     parser.parse_args()
 
-    url, id, dir, video, err = parse_common_args_url(args = args, url_start="https://www.youtube.com/playlist?list")
+    url, id, dir, video, subtitle, err = parse_common_args_url(args = args, url_start="https://www.youtube.com/playlist?list")
 
     if err:
         return

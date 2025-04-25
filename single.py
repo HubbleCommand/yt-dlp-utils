@@ -9,7 +9,7 @@ def main():
     args = parser.parse_args()
     parser.parse_args()
 
-    url, id, dir, video, err = parse_common_args_url(args = args, url_start="https://www.youtube.com/watch?v")
+    url, id, dir, video, subtitle, err = parse_common_args_url(args = args, url_start="https://www.youtube.com/watch?v")
 
     if err:
         return
@@ -19,7 +19,9 @@ def main():
         command += '--extract-audio --audio-format mp3 '
     if args.trim:
         command += f" --download-sections {args.trim} "
-    
+    if subtitle:
+        command += ' --write-subs --write-auto-subs --convert-subs srt --embed-subs --sub-lang en '   
+
     command += f'-o "{dir}/%(title)s - {id}.%(ext)s" {url}'
     download = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
   

@@ -13,3 +13,10 @@
 *.webp
 *.part
 *.ytdl
+*.srt
+*.ssa
+*.ttml
+*.sbv
+*.dfxp
+*.vtt
+*.txt

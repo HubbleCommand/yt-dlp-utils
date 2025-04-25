@@ -5,6 +5,7 @@ def make_common_argparse():
 	parser = argparse.ArgumentParser()
 	parser.add_argument("-d", "--directory", help="output directory, MUST be a full path, files will be dumped here, this script handles merging", type=str)
 	parser.add_argument("-v", "--video", help="if download as a video instead of just audio", action="store_true")
+	parser.add_argument("-s", "--subtitle", help="if download as a video instead of just audio", action="store_true")
 	parser.add_argument("-u", "--url", help="video / playlist url", type=str) #, nargs='+'
 	parser.add_argument("--id", help="video / playlist id", type=str) #, nargs='+'
 	return parser
@@ -30,6 +31,7 @@ def parse_common_args_url(args, url_start):
 		dir = args.directory #os.path.abspath(args.directory)
 	
 	vid = args.video
+	subtitle = args.subtitle
 
-	return [url, id, dir, vid, None]
+	return [url, id, dir, vid, subtitle, None]
     
