@@ -17,7 +17,7 @@ def main():
     args = parser.parse_args()
     parser.parse_args()
 
-    url, id, dir, err = parse_common_args_url(args = args, url_start="https://www.youtube.com/watch?v")
+    url, id, dir, video, subtitle, err  = parse_common_args_url(args = args, url_start="https://www.youtube.com/watch?v")
 
     if err:
         return
