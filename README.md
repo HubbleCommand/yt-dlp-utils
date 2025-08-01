@@ -1,4 +1,5 @@
 # YT-DLP Utils
+
 Wrapper commands around common [YT-DLP](https://github.com/yt-dlp/yt-dlp) commands that I use
 
 > YT-DLP can be used to download videos from a much wider source than I imagined, including LinkedIn! See [this page](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md) for the full list.
@@ -13,6 +14,7 @@ While yt-dlp does have support for cookies, I've never gotten it to work...
 A good alternative is [cnvmp3](https://cnvmp3.com/v23).
 
 ## Setup
+
 Download the yt-dlp executable from the [yt-dlp repo](https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#installation).
 
 You will need ffmpeg for the metadata and file splitting features. yt-dlp provides custom builds of this critical dependency [here](https://github.com/yt-dlp/FFmpeg-Builds?tab=readme-ov-file).
@@ -40,6 +42,7 @@ dict_keys([
 ** WARNING ** thumbnail might not be embedded, see [this issue](https://github.com/yt-dlp/yt-dlp/issues/6225) for details
 
 ## Leftover commands
+
 These are some commands that are too short to write a complete script for
 
 - Download only video thumbnail : `yt-dlp --write-thumbnail --skip-download <URL>`
@@ -47,11 +50,12 @@ These are some commands that are too short to write a complete script for
 
 
 ## Single
+
 Downloads a single video as a `.mp3` file.
 
 ```
 python single.py
-    --directory str: 'absolute path to write results to'
+    --directory str: 'absolute or relative path to write results to'
     --id        str: 'playlist id (youtube only)'
     --url       str: 'playlist url'
     --video     flag: 'download full videos instead of converting to mp3s'
@@ -62,16 +66,18 @@ For determining the trimming timestamps, you can use [this](https://www.omnicalc
 tool to easily convert mm:ss to sss.
 
 ## Chapters
+
 Downloads a single video, seperating it into separate files by chapter.
 
 ```
 python chapters.py
-    --directory str: 'absolute path to write results to'
+    --directory str: 'absolute or relative path to write results to'
     --id        str: 'video id (youtube only)'
     --url       str: 'video url'
 ```
 
 ## Playlist
+
 Downloads a playlist, can handle merging with previous downloads if set.
 
 > I just found that [yt-dlp already supports diffing](https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-download-only-new-videos-from-a-playlist)
@@ -79,7 +85,7 @@ Downloads a playlist, can handle merging with previous downloads if set.
 
 ```
 python playlist.py
-    --directory str: 'absolute path to write results to'
+    --directory str: 'absolute or relative path to write results to'
     --id        str: 'playlist id (youtube only)'
     --url       str: 'playlist url'
     --video     flag: 'download full videos instead of converting to mp3s'
@@ -89,6 +95,7 @@ python playlist.py
 ```
 
 ## Merge
+
 Merges downloaded playlists directories, specifically to merge back deleted videos. Does so by copying all unique files in supplied folders to the output directory (ignoring index & file type).
 
 ```
