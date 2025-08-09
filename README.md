@@ -58,8 +58,8 @@ python single.py
     --directory str: 'absolute or relative path to write results to'
     --id        str: 'playlist id (youtube only)'
     --url       str: 'playlist url'
-    --video     flag: 'download full videos instead of converting to mp3s'
-    -- trim     str: 'trim "*from-to" ie "*25-32", all in seconds'
+    --video     flag:'download full videos instead of converting to mp3s'
+    --trim      str: 'trim "*from-to" ie "*25-32", all in seconds'
 ```
 
 For determining the trimming timestamps, you can use [this](https://www.omnicalculator.com/conversion/minutes-to-seconds-converter)
