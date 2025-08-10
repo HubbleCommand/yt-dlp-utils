@@ -7,6 +7,8 @@ Wrapper commands around common [YT-DLP](https://github.com/yt-dlp/yt-dlp) comman
 > ~~ Currently ongoing issues with yt-dlp due to yt changes [*](https://github.com/yt-dlp/yt-dlp/issues/11868) ~~
     simply update yt-dlp and ffmpeg dependencies, see setup below
 
+> Trimming had some issues, needed to upgrade to yt-dlp [2025.07.21](https://github.com/yt-dlp/yt-dlp/releases/tag/2025.07.21).
+
 ## Cookies
 
 Some videos are age restricted, namely VICE documentaries.
